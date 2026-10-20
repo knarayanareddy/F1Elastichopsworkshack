@@ -1,7 +1,7 @@
 {
   "passed": true,
   "app_version": "2.4.0",
-  "tested_at": "2026-10-20T18:08:03.389982+00:00",
+  "tested_at": "2026-10-20T18:13:29.867400+00:00",
   "checks": [
     "ZIP integrity",
     "Safe rooted paths and no symlink members",
@@ -99,7 +99,7 @@
       "telemetry_samples": 110300,
       "all_driver_files_verified": true
     },
-    "on_demand_zip_bytes": 20985934,
+    "on_demand_zip_bytes": 20985963,
     "ghost_rpm_points": 361,
     "classified_actual_gap": -22.896
   }
