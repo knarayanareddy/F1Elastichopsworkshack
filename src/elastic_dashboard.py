@@ -9,7 +9,7 @@ from pathlib import Path
 import copy,math,re,time
 from .dashboard import DashboardEngine,DASH,ROOT,read,mean
 from .remote import FIELDS,canonical,digest
-from .settings import problem
+from .settings import problem,runtime_dir
 
 NATIVE_NOTE=('Elastic supplies Race/Qualifying results, laps and weather. Public supplements supply venue/driver metadata, Sprint points, classified elapsed times/completed-lap totals, qualifying segments, speed traps, pit-lane visits and race control. Historical timing and the four original labs remain separate public snapshots. No silent local fallback is used for failed native reads.')
 RESULT_FIELDS=FIELDS['results']
@@ -97,7 +97,7 @@ class ElasticDashboard(DashboardEngine):
         catalog={'seasons':sorted({k[0] for k in keys}),'events':events,'drivers':drivers,'teams':teams,'sessions':sessions,'results':normalized,'official_standings':[],
             'pit_stops':[p for p in public['pit_stops'] if (p['season'],p['round_number']) in keys]}
         # A separate disposable DB avoids overwriting the public runtime cache.
-        super().__init__(catalog=catalog,feature_reader=feature_reader,runtime_path=runtime_path or ROOT/'.cache/elastic-dashboard.sqlite')
+        super().__init__(catalog=catalog,feature_reader=feature_reader,runtime_path=runtime_path or runtime_dir()/'elastic-dashboard.sqlite')
         self.data_source='elastic';self.raw_cache={};self.loaded_at=datetime.now(timezone.utc).isoformat()
     def pace_source_id(self,season,round_number):
         return digest([self.reader.settings.elastic_url,self.reader.settings.indexes,super().pace_source_id(season,round_number)])

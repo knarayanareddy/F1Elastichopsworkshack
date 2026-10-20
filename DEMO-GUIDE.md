@@ -1,6 +1,6 @@
 # PITLANE — dashboard tour & four ideas to try
 
-Open the live preview. The default is the **2023–2024 historical dashboard**; the four original experiments remain under **Experiments**, explicitly scoped to the **2024 Dutch GP**. No event credentials are needed to explore the included public archive.
+The hosted, credential-free preview uses the bundled public archive and local SQLite; it does not contact Elastic or Hopsworks, and cloud controls are disabled. The default is the **2023–2024 historical dashboard**; the four original experiments remain under **Experiments**, explicitly scoped to the **2024 Dutch GP**. The normal `uvicorn app:app` entrypoint remains the separate operator-configured cloud mode.
 
 ## New in 2.2 / the multi-car demo
 

@@ -4,6 +4,8 @@
 
 The app still starts in local mode without credentials. Open **Connections** in the dashboard for configuration readiness, protected connection tests, actual source counts, feature planning/publishing/read-back, mode activation and bounded native telemetry.
 
+The hosted Vercel showcase uses the separate `demo.py` runtime and intentionally ignores provider settings; use the normal `uvicorn app:app` entrypoint below only when you want to configure cloud mode.
+
 ## Quick setup
 
 ### 1. Install and create a private configuration
@@ -18,7 +20,7 @@ python scripts/connect_cloud.py init
 
 `init` creates `.env` with a random **operator token** and restrictive file permissions where supported. It **never overwrites** an existing `.env`. It makes no cloud calls and does not print any token or provider key. Open that file privately in your editor.
 
-Python 3.11+ is recommended. This build installed/imported **Hopsworks SDK 5.2.1 on Python 3.13** and checked the SDK methods used by the adapter. This is an SDK import/API-shape check, **not** proof that your deployment accepts that version. The optional dependency range is `hopsworks[python]>=4.8,<6`; pin the version recommended for your Hopsworks deployment if its major/minor differs. Use a virtual environment, not your system Python.
+Python 3.11+ is recommended for local use; Vercel is pinned to Python 3.12. The credential-free hosted showcase does not install or load the Hopsworks SDK. For cloud-enabled local use, `requirements-integrations.txt` pins `hopsworks[python]==5.2.1`, the version imported/API-shape checked on Python 3.13. This is not proof that your deployment accepts that version; change it only after checking compatibility with your Hopsworks deployment. Use a virtual environment, not your system Python.
 
 ### 2. Fill in these server-side values
 

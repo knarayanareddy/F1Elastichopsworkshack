@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 import json, time, hashlib, sqlite3
 import numpy as np
 import pandas as pd
+from .settings import lab_database_path
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.pipeline import Pipeline
@@ -34,8 +35,9 @@ def now():return datetime.now(timezone.utc).isoformat()
 
 class LocalFeatureStore:
     """A real persisted round trip, deliberately labeled as a local stand-in."""
-    def __init__(self,path=DATA/'lab.sqlite'):
-        self.path=Path(path)
+    def __init__(self,path=None):
+        self.path=Path(path) if path is not None else lab_database_path()
+        self.path.parent.mkdir(parents=True,exist_ok=True)
     def put_read(self,name,frame):
         if not name.replace('_','').isalnum():raise ValueError('Invalid table name')
         if 'id' in frame and not frame.id.is_unique:raise ValueError('Feature primary keys must be unique')
@@ -75,7 +77,7 @@ def make_pace_features(laps):
 
 class LabEngine:
     def __init__(self,db_path=None):
-        self.store=LocalFeatureStore(db_path or DATA/'lab.sqlite')
+        self.store=LocalFeatureStore(db_path)
         self.manifest=load('manifest.json');self.results=load('results.json');self.raw_ghosts=load('ghosts.json');self.ghosts=self.raw_ghosts
         self.dna_raw=load('dna_laps.json');self.raw_laps=load('laps.json');self.laps=pd.DataFrame(self.raw_laps)
         classified=load('jolpica_results.json')['MRData']['RaceTable']['Races'][0]['Results']

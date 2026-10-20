@@ -1,4 +1,4 @@
-# Tested runtime / development versions. Python 3.11+ recommended.
+# Runtime / development dependencies for the bundled-data demo; cloud SDK is optional.
 fastapi==0.146.0
 uvicorn==0.54.0
 pandas==2.2.3

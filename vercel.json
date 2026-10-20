@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "vercel_demo.py": {
+      "excludeFiles": "{.env,**/.env,.env.local,**/.env.local,.env.*.local,**/.env.*.local,.vercel/**,.claude/**,.cache/**,.pytest_cache/**,_uv/**,.venv/**,.hopsworks/**,.hsfs/**,connection_state/**,certificates/**,.secrets/**,*.pem,*.key,*.jks,*.p12,*.pfx,*.crt,*.cer}"
+    }
+  }
+}

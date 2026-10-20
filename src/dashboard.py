@@ -10,6 +10,7 @@ from collections import defaultdict,Counter
 from threading import RLock
 import json,sqlite3,hashlib,statistics,csv,io,math
 import numpy as np
+from .settings import runtime_dir
 
 ROOT=Path(__file__).resolve().parents[1];DASH=ROOT/'data/dashboard'
 TEAM_COLORS={'red_bull':'#7ca7ff','mercedes':'#58d8c4','ferrari':'#ff677a','mclaren':'#ff9e65','aston_martin':'#64bd9c','alpine':'#be9aff','williams':'#78b2ff','haas':'#b8c3cf','alphatauri':'#a6acdf','rb':'#a6acdf','alfa':'#d2829b','sauber':'#a4db70'}
@@ -28,7 +29,7 @@ class DashboardEngine:
         self.manifest=read(self.path/'manifest.json') if (self.path/'manifest.json').exists() else {'coverage':[],'errors':[],'synthetic_observations':0,'status':'importing'}
         self.events=self.catalog['events'];self.drivers={d['driver_id']:d for d in self.catalog['drivers']};self.teams={t['team_id']:{**t,'color':TEAM_COLORS.get(t['team_id'],'#b3bfcc')} for t in self.catalog['teams']}
         self.event_map={(e['season'],e['round_number']):e for e in self.events};self.lock=RLock()
-        runtime=Path(runtime_path) if runtime_path is not None else ROOT/'.cache/dashboard-runtime.sqlite';runtime.parent.mkdir(parents=True,exist_ok=True)
+        runtime=Path(runtime_path) if runtime_path is not None else runtime_dir()/'dashboard-runtime.sqlite';runtime.parent.mkdir(parents=True,exist_ok=True)
         self.db=sqlite3.connect(runtime,check_same_thread=False)
         self.db.execute('CREATE TABLE IF NOT EXISTS dashboard_results (id TEXT PRIMARY KEY, season INTEGER, round_number INTEGER, session_name TEXT, payload TEXT)')
         self.db.execute('CREATE TABLE IF NOT EXISTS race_pace_features (id TEXT PRIMARY KEY, season INTEGER, round_number INTEGER, payload TEXT)')

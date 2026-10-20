@@ -12,7 +12,7 @@ import hashlib,hmac,json,secrets,time,uuid
 from fastapi import APIRouter,Request,HTTPException,Query
 from fastapi.responses import FileResponse,JSONResponse
 from pydantic import BaseModel,Field
-from .settings import Settings,ConnectionProblem,problem,ROOT
+from .settings import Settings,ConnectionProblem,problem,ROOT,runtime_dir
 from .remote import ElasticReader,HopsFeatures,FIELDS
 
 router=APIRouter(prefix='/api/connections',tags=['Server-side connections'])
@@ -45,7 +45,7 @@ class Runtime:
         with self.lock:
             if key in self.engines:return self.engines[key]
             from .dashboard import DashboardEngine
-            path=ROOT/'.cache'/f'dashboard-{self.generation}-{data}-{features}.sqlite'
+            path=runtime_dir()/f'dashboard-{self.generation}-{data}-{features}.sqlite'
             reader=self.store().read if features=='hopsworks' else None
             if data=='elastic':
                 from .elastic_dashboard import ElasticDashboard

@@ -7,6 +7,19 @@ import os, re
 ROOT=Path(__file__).resolve().parents[1]
 KINDS=('sessions','results','laps','weather','telemetry')
 
+def runtime_dir():
+    """Return a writable runtime directory for caches and transient databases."""
+    configured=os.environ.get('PITLANE_RUNTIME_DIR','').strip()
+    if configured:return Path(configured)
+    if os.environ.get('VERCEL'):return Path('/tmp/pitlane')
+    return ROOT/'.cache'
+
+def lab_database_path():
+    """Use bundled SQLite locally and ephemeral writable storage on Vercel."""
+    if os.environ.get('VERCEL') or os.environ.get('PITLANE_RUNTIME_DIR'):
+        return runtime_dir()/'lab.sqlite'
+    return ROOT/'data'/'lab.sqlite'
+
 class ConnectionProblem(Exception):
     def __init__(self,code,message,status=503):
         super().__init__(message);self.code=code;self.message=message;self.status=status

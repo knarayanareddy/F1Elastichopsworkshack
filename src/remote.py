@@ -7,7 +7,7 @@ import hashlib, json, math, threading, time
 from urllib.parse import quote
 import pandas as pd
 import requests
-from .settings import ConnectionProblem, problem, KINDS,ROOT
+from .settings import ConnectionProblem, problem, KINDS,ROOT,runtime_dir
 
 COMMON=['season','round_number','event_name','session_name']
 FIELDS={
@@ -129,7 +129,7 @@ class HopsFeatures:
                 self.client=hopsworks
             host=self.settings.hops_host;port=443
             if ':' in host:host,port=host.rsplit(':',1);port=int(port)
-            certs=ROOT/'.cache/hopsworks-certs';certs.mkdir(parents=True,exist_ok=True)
+            certs=runtime_dir()/'hopsworks-certs';certs.mkdir(parents=True,exist_ok=True)
             project=self.client.login(host=host,port=port,project=self.settings.hops_project,api_key_value=self.settings.hops_key,hostname_verification=True,trust_store_path=self.settings.hops_ca or None,cert_folder=str(certs),engine='python')
             self.store=project.get_feature_store();return self.store
         except ImportError:problem('sdk_missing','Install requirements-integrations.txt in the server Python environment before connecting Hopsworks.')

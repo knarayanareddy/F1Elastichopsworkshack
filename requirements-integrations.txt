@@ -1,2 +1,3 @@
-# Match the SDK major/minor to your Hopsworks deployment if required.
-hopsworks[python]>=4.8,<6
+# 5.2.1 matches the SDK API surface verified for this app; change only after
+# checking compatibility with the target Hopsworks deployment.
+hopsworks[python]==5.2.1

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>F1 × Elastic × Hopsworks | PITLANE</title>
+<title>PITLANE | Credential-free F1 race demo</title>
 <style>
 :root{color-scheme:dark;--bg:#0d131a;--panel:#151f29;--line:#293744;--text:#f3f6fa;--muted:#aab7c5;--blue:#4db3f2;--green:#42d6a1;--lime:#c7f36b;--gold:#f5c65b}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0,#1c2b38 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
@@ -12,22 +12,22 @@ main{max-width:1120px;margin:auto;padding:64px 28px 80px}.eyebrow{color:var(--gr
 </style>
 </head>
 <body><main>
-<p class="eyebrow">F1 · Elastic · Hopsworks · Hack night</p>
-<h1>From race data<br>to trusted pace.</h1>
-<p class="lead">PITLANE turns bounded Elastic race observations into per-driver pace features, verifies their Hopsworks read-back, and uses those values in the Race Pace dashboard.</p>
-<span class="tag">CURRENT VERIFIED BATCH · 2024 DUTCH GP RACE · 20 DRIVERS</span>
+<p class="eyebrow">F1 · 2023–2024 · credential-free showcase</p>
+<h1>Explore race data<br>without setup.</h1>
+<p class="lead">PITLANE is an interactive historical F1 workspace with bundled public observations, four Dutch GP experiments, and a synchronized 20-car replay. The hosted demo needs no Elastic or Hopsworks keys.</p>
+<span class="tag">VERCEL-HOSTED · BUNDLED DATA · LOCAL SQLITE</span>
 <section class="flow" aria-label="Data workflow">
-<article class="card" style="--accent:var(--blue)"><b>01 · Elastic</b><p>Read-only source. Select season, round and session; telemetry is limited to one driver and lap.</p></article>
-<article class="card" style="--accent:var(--gold)"><b>02 · Python</b><p>Validate, filter and aggregate per-driver pace: median, spread and sample count.</p></article>
-<article class="card" style="--accent:var(--green)"><b>03 · Hopsworks</b><p>Versioned Feature Group with batches bound to their source and filter settings.</p></article>
-<article class="card" style="--accent:var(--blue)"><b>04 · Read back</b><p>Verify feature IDs, row count and values before activating the batch.</p></article>
-<article class="card" style="--accent:var(--lime)"><b>05 · PITLANE</b><p>Race Pace consumes verified Hopsworks summaries; raw lap evidence remains in Elastic.</p></article>
+<article class="card" style="--accent:var(--blue)"><b>01 · Public archive</b><p>Explore 46 Grands Prix across 2023–2024 from bundled, checksummed observations.</p></article>
+<article class="card" style="--accent:var(--gold)"><b>02 · Python</b><p>Filter and aggregate historical pace, results, weather, stints and race-control evidence.</p></article>
+<article class="card" style="--accent:var(--green)"><b>03 · SQLite</b><p>Local feature tables are persisted and read back; the hosted demo makes no provider calls.</p></article>
+<article class="card" style="--accent:var(--blue)"><b>04 · Replay</b><p>Compare four recorded laps or inspect 20 cars on a shared Dutch GP race clock.</p></article>
+<article class="card" style="--accent:var(--lime)"><b>05 · Experiments</b><p>Try pace analysis, a pit-stop sandbox and a driver–car classification challenge.</p></article>
 </section>
 <section class="scope">
-<div class="box"><h2>Data scope</h2><p>The shared Elastic source is the Dutch GP 2023/2024 lite dataset. The current Hopsworks batch is the 2024 Race, with 20 driver summaries. No full telemetry corpus is downloaded.</p></div>
-<div class="box"><h2>Honest boundary</h2><p>Ghost Lap, Pitwall, Pace Detective and Driver DNA are separate local prototypes. The live demo is served from the demo Mac through a temporary Cloudflare Tunnel; it is available only while the Mac, app and tunnel are online. GitHub Pages remains a static overview.</p></div>
+<div class="box"><h2>Data scope</h2><p>The dashboard uses a bundled 2023–2024 public archive; the four original ML/strategy experiments use the 2024 Dutch GP snapshot. The advertised full telemetry corpus is not loaded.</p></div>
+<div class="box"><h2>Honest boundary</h2><p>The hosted showcase labels its backend Local / SQLite. Elastic and Hopsworks controls are disabled here; the separate workflow slide describes an integration architecture, not a live connection. GitHub Pages is a static overview.</p></div>
 </section>
-<div class="actions"><a class="button" href="https://fihackdemo.kiranreddy.nl">Launch live demo</a><a class="button" href="presentation/Elastic-Hopsworks-Workflow.pptx">Download workflow slide</a><a class="button alt" href="https://github.com/knarayanareddy/F1Elastichopsworkshack">Browse source repository</a></div>
-<h2>Workflow slide</h2><img src="presentation/Elastic-Hopsworks-Workflow.png" alt="Elastic to Python to Hopsworks verified read-back workflow slide">
-<footer>Run the interactive dashboard locally from the repository README. Provider credentials stay in the backend environment and are not part of this site.</footer>
+<div class="actions"><a class="button" href="https://fihackdemo.kiranreddy.nl">Launch keyless demo</a><a class="button" href="presentation/Elastic-Hopsworks-Workflow.pptx">Download cloud workflow slide</a><a class="button alt" href="https://github.com/knarayanareddy/F1Elastichopsworkshack">Browse source repository</a></div>
+<h2>Optional cloud architecture reference</h2><img src="presentation/Elastic-Hopsworks-Workflow.png" alt="Conceptual Elastic to Python to Hopsworks integration workflow; not active in the hosted keyless demo">
+<footer>GitHub Pages serves this static overview. The interactive FastAPI showcase runs on Vercel from bundled data and needs no provider credentials.</footer>
 </main></body></html>

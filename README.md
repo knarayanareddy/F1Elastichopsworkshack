@@ -1,12 +1,23 @@
 # F1Elastichopsworkshack — PITLANE
 
-[Live demo](https://fihackdemo.kiranreddy.nl) · [Static GitHub Pages overview](https://knarayanareddy.github.io/F1Elastichopsworkshack/) · [Workflow slide](./presentation/Elastic-Hopsworks-Workflow.pptx)
+[Credential-free live demo](https://fihackdemo.kiranreddy.nl) · [Static GitHub Pages overview](https://knarayanareddy.github.io/F1Elastichopsworkshack/) · [Workflow slide](./presentation/Elastic-Hopsworks-Workflow.pptx)
 
-> The public demo uses a temporary Cloudflare Tunnel to the FastAPI server on the demo Mac; it is available only while that host and tunnel are online. GitHub Pages itself is static. Provider credentials remain server-side and are not published.
+> The hosted showcase uses bundled public observations and local SQLite on Vercel. It needs no Elastic/Hopsworks credentials and makes no provider calls; cloud integration controls are disabled in this demo mode. GitHub Pages is a static overview linking to the interactive app.
 
 ---
 
 **An explorable 2023–2024 race workspace, plus four fully working 2024 Dutch GP experiments.** Version 2.2 expands Ghost Lap with four-car comparison and a synchronized 20-car race replay, while retaining the configurable Elastic/Hopsworks runtime and original analytics.
+
+## Run the credential-free showcase
+
+The hosted demo and local showcase use the bundled archive and SQLite feature store. This is a real-data demo, not a live Elastic/Hopsworks connection; provider controls stay disabled.
+
+```bash
+python -m pip install -r requirements.txt
+python demo.py --host 0.0.0.0 --port 8000
+```
+
+The normal `uvicorn app:app` entrypoint remains available for operator-configured Elastic/Hopsworks use. Install `requirements-integrations.txt` only for that cloud-enabled workflow.
 
 ## New / multi-car Ghost Lap
 
@@ -71,7 +82,7 @@ Unsupported reference modules were **replaced**, not filled with invented data: 
 | Pace / DNA models | Actually fitted and evaluated on the original **one-race** snapshot; no two-season generalization claim |
 | Pitwall outcomes | **Modeled counterfactuals**, not observed or causally validated alternatives |
 | Default runtime | Local JSON/SQLite, available without any credentials |
-| Configurable cloud runtime | Read-only native Elastic results/laps/weather + labeled public supplements; dashboard pace summaries can consume **actual verified Hopsworks read-back** |
+| Optional cloud-capable runtime (not enabled in the hosted demo) | Read-only native Elastic results/laps/weather + labeled public supplements; dashboard pace summaries can consume **actual verified Hopsworks read-back** |
 | Connection validation | Runtime adapters and UI are tested against offline HTTP/SDK fixtures; real Hopsworks SDK import/API shape checked; **your accounts still need live validation** |
 | Original-lab publisher | Separate optional script for the original four feature groups; it does not switch the original experiments to cloud execution |
 
@@ -285,5 +296,3 @@ python scripts/publish_cloud.py --target hopsworks --prefix pitlane_yourteam
 Actual legacy publishing requires `--write`, the optional dependencies and your own writable destination. Legacy Elastic destination variables are `ELASTICSEARCH_URL/API_KEY`; do **not** put the organizer's read-only source there when running that publisher. New canonical read-source variables are `ELASTIC_SOURCE_URL/API_KEY`. The original lab pipeline stays local after legacy publishing; it is distinct from the dashboard's configurable pace-feature backend.
 
 No accounts, deployments or billable cloud resources are provisioned automatically. Real account permissions, schema, connectivity and SDK/server compatibility must be checked when credentials arrive. The installed Hopsworks SDK 5.2.1 was imported and its API surface inspected; provider login and storage/network access remain unverified against live accounts.
-
-

@@ -25,7 +25,7 @@ The two-season archive uses public OpenF1 and Jolpica observations, separately a
 
 ## Optional runtime SDK
 
-Hopsworks/HSFS is installed separately through `requirements-integrations.txt`, not vendored into the package. Version 5.2.1 was imported/API-shape checked for this build; no live provider account was accessed. SDK licenses and deployment compatibility remain those of the upstream provider. The new source reader uses the separately installed `requests` library and fixed Elasticsearch REST read APIs.
+Hopsworks/HSFS 5.2.1 is optional and installed from `requirements-integrations.txt` for cloud-enabled use; it is not vendored into the credential-free showcase. This version was imported/API-shape checked for this build; no live provider account was accessed. SDK licenses and deployment compatibility remain those of the upstream provider. The source reader uses `requests` and fixed Elasticsearch REST read APIs.
 
 ## Multi-car replay additions
 

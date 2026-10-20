@@ -1,6 +1,7 @@
 from pathlib import Path
 from threading import RLock
 from typing import Literal
+import os
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
@@ -73,7 +74,7 @@ def manifest():return engine.manifest
 
 @app.get('/api/download/project')
 def project_download():
-    path=ROOT.parent/'pitlane-lab.zip'
+    path=runtime_dir()/'pitlane-lab.zip' if (os.environ.get('VERCEL') or os.environ.get('PITLANE_RUNTIME_DIR')) else ROOT.parent/'pitlane-lab.zip'
     if not path.exists():
         from src.archive import create_archive
         with lock:
@@ -97,7 +98,7 @@ from src.dashboard_api import router as dashboard_router
 app.include_router(dashboard_router)
 
 from src.connections import router as connections_router,runtime,authorized
-from src.settings import ConnectionProblem
+from src.settings import ConnectionProblem,runtime_dir
 from fastapi.responses import JSONResponse
 app.include_router(connections_router)
 from fastapi.exceptions import RequestValidationError

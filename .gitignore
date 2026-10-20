@@ -23,3 +23,6 @@ certificates/
 *.crt
 *.cer
 data/*-publish-report.json
+.vercel/
+_uv/
+.claude/napkin.md

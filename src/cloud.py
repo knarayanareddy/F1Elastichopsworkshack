@@ -8,6 +8,7 @@ from urllib.parse import urlparse
 import pandas as pd
 import requests
 from .engine import safe
+from .settings import runtime_dir
 
 GROUPS=('ghost_features','pace_features','dna_features','strategy_features')
 
@@ -67,7 +68,7 @@ class HopsworksPublisher:
         if client is None:
             import hopsworks
             client=hopsworks
-        certs=Path(__file__).resolve().parents[1]/'.cache/hopsworks-certs';certs.mkdir(parents=True,exist_ok=True)
+        certs=runtime_dir()/'hopsworks-certs';certs.mkdir(parents=True,exist_ok=True)
         self.project=client.login(host=host,project=project,api_key_value=key,hostname_verification=True,cert_folder=str(certs))
         self.store=self.project.get_feature_store()
     def publish(self,prefix,frames):
