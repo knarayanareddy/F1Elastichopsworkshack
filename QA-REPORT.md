@@ -1,6 +1,24 @@
-# QA report — Pitlane 2.2 / multi-car replay + configurable dashboard
+# QA report — PITLANE 2.4 / Apex Afterhours Festival Set
 
-Verified during this build on **2026-10-19**. All twelve suites below were executed after the multi-car replay integration; browser suites ran sequentially to avoid graphics contention. These are actual tests of the implementation, not inferred coverage from screenshots.
+## Current 2.4 integration verification — 2026-10-20
+
+| Suite | Result | Evidence |
+|---|---:|---|
+| Full Python regression suite | **322 passed**, 0 failures | Local `pytest -q` run |
+| Focused Afterhours + Vercel runtime tests | **30 passed**, 0 failures | `tests/test_afterhours.py`, `tests/test_vercel_runtime.py` |
+| Afterhours music/data model | **88 passed**, 0 failures | `qa/afterhours-model-results.json` |
+| Genre/score/VJ safety model | **172 passed**, 0 failures | `qa/afterhours-genres-model-results.json` |
+| Afterhours Chromium interactions / audio | **50 passed**, 0 failures | `qa/afterhours-browser-results.json` |
+| Frontend production build | **Passed**; Afterhours JS/CSS emitted | `npm run build` |
+| Fresh ZIP extraction / API / static assets / cache-secret exclusions | **27 passed**; final archived evidence recheck **28 passed** | `qa/package-smoke.json` |
+| Vercel production deployment | **READY**; canonical and compatibility hosts serve the keyless API | `https://f1hackdemo.kiranreddy.nl`, `https://fihackdemo.kiranreddy.nl` |
+| Public production browser smoke | **Passed**; five cards, 20 laps, Psytrance preset and visual-only mode; 0 runtime errors/external requests | Playwright on `f1hackdemo.kiranreddy.nl` |
+
+Production is deployed to `f1hackdemo.kiranreddy.nl`; the existing `fihackdemo.kiranreddy.nl` alias still works. Direct requests show Local/SQLite modes, no cloud connection and zero synthetic observations. The Vercel project download was about **21 MB**, included `.env.example`, and contained no `.vercel` or injected Python runtime-cache directories; the served Afterhours JS/CSS matched the local build. The local source ZIP is about **21 MB** (348 files). Production was deployed through the Vercel CLI, and this release's matching source is being committed to GitHub in this change. Python tests ran on Python **3.13** because 3.12 was not installed locally; Vercel built with Python **3.12**. Browser peak output was below **0.14** at the tested UI volume; that is not a speaker-loudness guarantee. Vite reports the existing lazy Three.js scene chunk above 500 kB. The 79-check managed-browser report included from the source folder was not re-run and is not counted above.
+
+## Historical 2.2 baseline — 2026-10-19
+
+The following twelve suites document the earlier multi-car replay build and were executed after that integration. They remain historical baseline results; they were not all repeated for version 2.4.
 
 ## Automated results
 

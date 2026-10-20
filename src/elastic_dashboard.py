@@ -11,7 +11,7 @@ from .dashboard import DashboardEngine,DASH,ROOT,read,mean
 from .remote import FIELDS,canonical,digest
 from .settings import problem,runtime_dir
 
-NATIVE_NOTE=('Elastic supplies Race/Qualifying results, laps and weather. Public supplements supply venue/driver metadata, Sprint points, classified elapsed times/completed-lap totals, qualifying segments, speed traps, pit-lane visits and race control. Historical timing and the four original labs remain separate public snapshots. No silent local fallback is used for failed native reads.')
+NATIVE_NOTE=('Elastic supplies Race/Qualifying results, laps and weather. Public supplements supply venue/driver metadata, Sprint points, classified elapsed times/completed-lap totals, qualifying segments, speed traps, pit-lane visits and race control. Historical timing and all five Dutch-GP experiments remain separate public-data experiences; Afterhours reads only the bundled replay archive. No silent local fallback is used for failed native reads.')
 RESULT_FIELDS=FIELDS['results']
 
 def number(value,name,integer=False,minimum=None):

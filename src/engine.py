@@ -115,7 +115,7 @@ class LabEngine:
         t=time.perf_counter();self.fit_dna()
         self.step('Train & evaluate driver–car classifier',self.dna_report['test_rows'],t,'Telemetry-only features; whole-lap chronological holdout')
         t=time.perf_counter();self.store.put_read('pace_results',self.pace)
-        self.step('Publish local application results',len(self.pace),t,'Queryable results; all four experiences ready')
+        self.step('Publish local application results',len(self.pace),t,'Queryable results; four original model experiences ready')
         self.built_at=now();self.duration=round(time.perf_counter()-start,3)
         return self.pipeline_status()
 

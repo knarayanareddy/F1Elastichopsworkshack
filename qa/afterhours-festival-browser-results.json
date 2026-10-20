@@ -1,0 +1,392 @@
+{
+  "checks": [
+    {
+      "name": "Seven genre remixes and driver signatures are selectable",
+      "passed": true
+    },
+    {
+      "name": "No AudioContext or flash accent starts before consent",
+      "passed": true
+    },
+    {
+      "name": "Genre selection while paused updates the creative profile without starting music",
+      "passed": true
+    },
+    {
+      "name": "trance: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "psy: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "acid: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "house: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "melodic: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "groove: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "breaks: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "signature: actual synthesized output, corresponding tempo and single context",
+      "passed": true
+    },
+    {
+      "name": "Genre transitions preserve the recorded lap clock",
+      "passed": true
+    },
+    {
+      "name": "Auto VJ genuinely changes patterns as the audio clock advances",
+      "passed": true
+    },
+    {
+      "name": "DRS request queues an audible build on the musical timeline",
+      "passed": true
+    },
+    {
+      "name": "The musical drop and visual callout arrive together",
+      "passed": true
+    },
+    {
+      "name": "A recorded lap-loop finish queues its own musical drop",
+      "passed": true
+    },
+    {
+      "name": "Lap-linked drop occurs near BOT\u2019s first phase-wrap, not an arbitrary timer",
+      "passed": true
+    },
+    {
+      "name": "Auto DJ follows the real fastest-lap lineup (NOR to HAM)",
+      "passed": true
+    },
+    {
+      "name": "Auto DJ keeps the selected genre while changing driver identity",
+      "passed": true
+    },
+    {
+      "name": "Flashing effects require a separate warning/confirmation",
+      "passed": true
+    },
+    {
+      "name": "Flashes are localized rate-limited accents, not an unrestricted strobe",
+      "passed": true
+    },
+    {
+      "name": "Emergency Calm lights immediately disables flashing",
+      "passed": true
+    },
+    {
+      "name": "Mute still silences the richer mix while car playback continues",
+      "passed": true
+    },
+    {
+      "name": "Leaving the set closes every music context",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: dashboard",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: timing",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: calendar",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: results",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: driver-standings",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: constructor-standings",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: drivers",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: teams",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: driver-stats",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: head-to-head",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: consistency",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: race-pace",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: pit-stops",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: tyres",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: weather",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: race-control",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: track-dna",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: data",
+      "passed": true
+    },
+    {
+      "name": "Retained dashboard route: connections",
+      "passed": true
+    },
+    {
+      "name": "Silent Auto DJ changes one driver per phrase, not every render frame",
+      "passed": true
+    },
+    {
+      "name": "Visual rehearsal creates no audio and identifies its preview clock",
+      "passed": true
+    },
+    {
+      "name": "Genre rack and performance controls fit mobile",
+      "passed": true
+    },
+    {
+      "name": "Mobile theatre exposes genre, driver, mute and Calm controls",
+      "passed": true
+    },
+    {
+      "name": "Escape exits performance theatre",
+      "passed": true
+    },
+    {
+      "name": "Reduced-motion preference overrides flashing and pattern animation",
+      "passed": true
+    },
+    {
+      "name": "No unexpected browser runtime errors",
+      "passed": true
+    },
+    {
+      "name": "NOR: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "VER: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "LEC: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "PIA: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "SAI: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "PER: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "RUS: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "HAM: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "GAS: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "ALO: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "HUL: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "RIC: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "STR: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "ALB: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "OCO: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "SAR: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "TSU: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "MAG: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "BOT: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "ZHO: driver identity survives genre remix and bar-quantized cue",
+      "passed": true
+    },
+    {
+      "name": "One active audio context handles all twenty remixed drivers",
+      "passed": true
+    },
+    {
+      "name": "Individual stem control remains available with genre remixes",
+      "passed": true
+    },
+    {
+      "name": "Zero volume silences the genre engine",
+      "passed": true
+    },
+    {
+      "name": "Pause freezes the visual beat instead of resetting its pattern phase",
+      "passed": true
+    },
+    {
+      "name": "Unmuted pause silences all voices and effect tails",
+      "passed": true
+    },
+    {
+      "name": "Hiding the page stops the new genre/drop scheduler",
+      "passed": true
+    },
+    {
+      "name": "The five-experiment collection is preserved",
+      "passed": true
+    },
+    {
+      "name": "All genre-engine contexts close after navigation",
+      "passed": true
+    },
+    {
+      "name": "No runtime errors across full festival lifecycle",
+      "passed": true
+    }
+  ],
+  "measurements": {
+    "genres": {
+      "trance": {
+        "rms": 0.010415996537184438,
+        "peak": 0.12661650776863098,
+        "oscillators": 60,
+        "contexts": 1,
+        "bpm": "136"
+      },
+      "psy": {
+        "rms": 0.012461533652484999,
+        "peak": 0.13122037053108215,
+        "oscillators": 100,
+        "contexts": 1,
+        "bpm": "142"
+      },
+      "acid": {
+        "rms": 0.008654999182868049,
+        "peak": 0.13081178069114685,
+        "oscillators": 131,
+        "contexts": 1,
+        "bpm": "134"
+      },
+      "house": {
+        "rms": 0.010309380962083246,
+        "peak": 0.12356182932853699,
+        "oscillators": 158,
+        "contexts": 1,
+        "bpm": "122"
+      },
+      "melodic": {
+        "rms": 0.010094302997609484,
+        "peak": 0.13083292543888092,
+        "oscillators": 188,
+        "contexts": 1,
+        "bpm": "124"
+      },
+      "groove": {
+        "rms": 0.011181283649382064,
+        "peak": 0.12736526131629944,
+        "oscillators": 215,
+        "contexts": 1,
+        "bpm": "138"
+      },
+      "breaks": {
+        "rms": 0.02145808379301382,
+        "peak": 0.12652918696403503,
+        "oscillators": 264,
+        "contexts": 1,
+        "bpm": "170"
+      },
+      "signature": {
+        "rms": 0.01629846916280079,
+        "peak": 0.13182082772254944,
+        "oscillators": 301,
+        "contexts": 1,
+        "bpm": "132"
+      }
+    },
+    "flashIntervalsMs": [
+      0,
+      1404.5999999996275,
+      1395,
+      1399.9000000003725,
+      1383.2999999998137
+    ]
+  },
+  "scope": "Actual browser audio/visual checks in the managed arena Playwright session.",
+  "created_at": "2026-10-20T16:06:04.695Z",
+  "errors": [],
+  "passed": 79,
+  "total": 79
+}

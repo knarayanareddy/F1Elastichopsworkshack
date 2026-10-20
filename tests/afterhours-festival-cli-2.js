@@ -1,0 +1,30 @@
+async page => {
+ const check=async(name,ok)=>{await page.evaluate(({name,ok})=>window.__festivalQA.checks.push({name,passed:!!ok}),{name,ok});if(!ok)throw new Error(name)};
+ if(await page.getByRole('button',{name:'Pause Afterhours',exact:true}).count())await page.getByRole('button',{name:'Pause Afterhours',exact:true}).click();
+ await page.getByRole('combobox',{name:'Afterhours genre',exact:true}).selectOption('house');await page.getByRole('combobox',{name:'Afterhours driver',exact:true}).selectOption('BOT');await page.getByRole('button',{name:'Restart Afterhours laps',exact:true}).click();
+ await page.getByRole('button',{name:'Play Afterhours',exact:true}).click();
+ await page.waitForFunction(()=>['BUILD','DROP'].includes(document.querySelector('.afterhours-floor canvas')?.dataset.section),null,{timeout:15000});
+ await check('A recorded lap-loop finish queues its own musical drop',await page.locator('.ah-telemetry-card').innerText().then(t=>t.includes('1:15.822')));
+ const t=Number(await page.locator('.afterhours-floor canvas').getAttribute('data-time'));
+ await check('Lap-linked drop occurs near BOT’s first phase-wrap, not an arbitrary timer',t>7&&t<14);
+ await page.getByRole('button',{name:'Pause Afterhours',exact:true}).click();
+ await page.getByRole('combobox',{name:'Afterhours driver',exact:true}).selectOption('NOR');await page.getByRole('combobox',{name:'Afterhours genre',exact:true}).selectOption('breaks');
+ await page.getByRole('button',{name:'Auto DJ OFF',exact:true}).click();await page.getByRole('button',{name:'Play Afterhours',exact:true}).click();
+ await page.waitForFunction(()=>document.querySelector('.afterhours-floor canvas')?.dataset.driver==='HAM',null,{timeout:18000});
+ await check('Auto DJ follows the real fastest-lap lineup (NOR to HAM)',await page.getByRole('combobox',{name:'Afterhours driver',exact:true}).inputValue()==='HAM');
+ await check('Auto DJ keeps the selected genre while changing driver identity',await page.locator('.afterhours-floor canvas').getAttribute('data-genre')==='breaks');
+ await page.getByRole('button',{name:'Auto DJ ON',exact:true}).click();
+ await page.getByRole('button',{name:'Flash accents OFF',exact:true}).click();
+ await page.getByRole('alert').waitFor();await check('Flashing effects require a separate warning/confirmation',await page.locator('.afterhours-floor canvas').getAttribute('data-flashes')==='false'&&(await page.getByRole('alert').innerText()).includes('seizures'));
+ await page.getByRole('button',{name:'Enable flash accents',exact:true}).click();await page.waitForFunction(()=>document.querySelector('.afterhours-floor canvas')?.dataset.flashes==='true');
+ const edges=await page.evaluate(async()=>{const events=[];let previous=false;const start=performance.now();await new Promise(resolve=>{function frame(){const value=Number(document.querySelector('.afterhours-floor canvas').dataset.flashPulse)>0;if(value&&!previous)events.push(performance.now());previous=value;if(performance.now()-start<6500)requestAnimationFrame(frame);else resolve()}requestAnimationFrame(frame)});return events.map((t,i)=>i?t-events[i-1]:0)});
+ await page.evaluate(edges=>window.__festivalQA.measurements.flashIntervalsMs=edges,edges);
+ await check('Flashes are localized rate-limited accents, not an unrestricted strobe',edges.length>=2&&edges.slice(1).every(x=>x>=730));
+ await page.keyboard.press('c');await page.waitForFunction(()=>document.querySelector('.afterhours-floor canvas')?.dataset.calm==='true');
+ await check('Emergency Calm lights immediately disables flashing',await page.locator('.afterhours-floor canvas').getAttribute('data-flashes')==='false'&&await page.getByRole('button',{name:'Flash accents OFF',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Mute Afterhours music',exact:true}).click();await page.waitForTimeout(350);
+ const rms=await page.evaluate(()=>{const c=window.__ahAudio.at(-1),a=c.aa.at(-1),x=new Float32Array(a.fftSize);a.getFloatTimeDomainData(x);return Math.sqrt(x.reduce((s,v)=>s+v*v,0)/x.length)});
+ await check('Mute still silences the richer mix while car playback continues',rms<.00001&&await page.getByRole('button',{name:'Pause Afterhours',exact:true}).isVisible());
+ await page.getByRole('button',{name:'Pause Afterhours',exact:true}).click();
+ return await page.evaluate(()=>window.__festivalQA);
+}

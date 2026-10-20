@@ -57,7 +57,7 @@ class Runtime:
         active_verified=(self.modes['data']=='elastic' and bool(elastic_read)) or (self.modes['features']=='hopsworks' and bool(hops_read))
         return {**self.settings.public(),'modes':dict(self.modes),'configuration_error':self.settings_error.public() if self.settings_error else None,'checks':dict(self.checks),'job':dict(self.job) if self.job else None,
             'cloud_connected':bool(active_verified),'last_elastic_read':elastic_read,'last_hopsworks_read':hops_read,'feature_plan':self.last_feature_plan,
-            'scope':'Cloud modes apply to the historical dashboard and its pace features. Historical timing and all four original Dutch-GP labs remain the separately labeled public snapshot.',
+            'scope':'Cloud modes apply to the historical dashboard and its pace features. Historical timing and all five Dutch-GP experiments remain separately labeled public-data experiences; Afterhours reads only the bundled replay archive.',
             'persistence':'Mode switches affect this server process. Put the desired modes in .env for restart persistence. Credentials are never edited or returned by this API.'}
     def test(self,provider):
         try:

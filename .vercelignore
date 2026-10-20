@@ -20,3 +20,5 @@ certificates/
 *.pfx
 *.crt
 *.cer
+!.env.example
+!**/.env.example

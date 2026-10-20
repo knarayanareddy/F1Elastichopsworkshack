@@ -1,6 +1,6 @@
 # Pitlane 2.2 — historical dashboard & hackathon adaptation
 
-The default workspace is an independent **2023–2024 historical F1 dashboard**, with the four original Dutch-GP experiments still available. The information architecture was informed by [Formula 1 Dashboard](https://app.formula1dashboard.com/); no proprietary code, assets, opaque scores, or 2026 race data were copied.
+The default workspace is an independent **2023–2024 historical F1 dashboard**, with five separately scoped Dutch-GP experiments available. The information architecture was informed by [Formula 1 Dashboard](https://app.formula1dashboard.com/); no proprietary code, assets, opaque scores, or 2026 race data were copied.
 
 ## Version 2.1 connection layer
 
@@ -197,3 +197,11 @@ The event's published full telemetry corpus was not downloaded. No event credent
 ## Version 2.2 / Ghost Lap expansion
 
 The dashboard routes and cloud modes remain as documented. Ghost Lap now offers four-car independent comparison, a separate synchronized 20-driver public Dutch GP replay, and the preserved two-car detail. See [MULTI-CAR-REPLAY.md](MULTI-CAR-REPLAY.md). The new 218,520-position / 110,300-telemetry archive does not change the original four-lap schema export, retrain the original models or imply full-field replay at every event. Native cloud modes still have their own explicit source/feature boundaries.
+
+## Version 2.3 / fifth experiment
+
+**Apex Afterhours** adds a public-data art/music experiment, separate from the dashboard and its cloud feature pipeline. Twenty official best race laps drive a 2D circuit; driver selection changes an original generated score and visual signature. It does not retrain the original models or claim cloud music generation. See [AFTERHOURS-GUIDE.md](AFTERHOURS-GUIDE.md).
+
+## Version 2.4 / Festival Set
+
+Afterhours adds seven original genre remixes, audio-clock choreography, Auto VJ, optional guarded flash accents and Calm/reduced-motion controls. Audio remains opt-in and all laps come from the existing checksummed replay archive. The complete controls, accessibility limits and verification scope are in [AFTERHOURS-GUIDE.md](AFTERHOURS-GUIDE.md); no cloud integration is implied.

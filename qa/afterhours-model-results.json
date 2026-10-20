@@ -1,0 +1,363 @@
+{
+  "created_at": "2026-10-20T16:59:25.909Z",
+  "passed": 88,
+  "total": 88,
+  "duration_ms": 104,
+  "measurements": {
+    "observed_driver_frames": 12000
+  },
+  "checks": [
+    {
+      "name": "Twenty distinct profiles cover the twenty real driver laps",
+      "passed": true
+    },
+    {
+      "name": "NOR: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "NOR: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "NOR: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "NOR: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "VER: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "VER: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "VER: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "VER: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "LEC: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "LEC: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "LEC: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "LEC: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "PIA: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "PIA: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "PIA: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "PIA: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "SAI: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "SAI: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "SAI: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "SAI: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "PER: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "PER: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "PER: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "PER: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "RUS: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "RUS: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "RUS: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "RUS: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "HAM: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "HAM: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "HAM: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "HAM: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "GAS: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "GAS: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "GAS: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "GAS: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "ALO: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "ALO: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "ALO: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "ALO: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "HUL: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "HUL: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "HUL: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "HUL: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "RIC: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "RIC: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "RIC: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "RIC: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "STR: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "STR: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "STR: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "STR: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "ALB: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "ALB: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "ALB: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "ALB: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "OCO: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "OCO: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "OCO: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "OCO: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "SAR: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "SAR: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "SAR: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "SAR: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "TSU: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "TSU: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "TSU: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "TSU: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "MAG: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "MAG: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "MAG: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "MAG: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "BOT: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "BOT: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "BOT: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "BOT: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "ZHO: original musical and visual identity",
+      "passed": true
+    },
+    {
+      "name": "ZHO: pitched parts stay finite and in audible register",
+      "passed": true
+    },
+    {
+      "name": "ZHO: dance rhythm has kicks, bass, percussion and melody",
+      "passed": true
+    },
+    {
+      "name": "ZHO: telemetry changes register without inventing notes",
+      "passed": true
+    },
+    {
+      "name": "All twenty score/palette fingerprints differ",
+      "passed": true
+    },
+    {
+      "name": "Arrangement evolves through four musical sections",
+      "passed": true
+    },
+    {
+      "name": "Dance formation distributes all twenty independent lap phases",
+      "passed": true
+    },
+    {
+      "name": "Aligned starts really align at zero",
+      "passed": true
+    },
+    {
+      "name": "Five-minute dance playback keeps every car within its recorded lap",
+      "passed": true
+    },
+    {
+      "name": "A car loops its own measured duration, not a fabricated common lap",
+      "passed": true
+    },
+    {
+      "name": "Circuit mapping produces finite stage coordinates",
+      "passed": true
+    }
+  ]
+}

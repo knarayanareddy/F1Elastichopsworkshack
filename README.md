@@ -6,7 +6,7 @@
 
 ---
 
-**An explorable 2023–2024 race workspace, plus four fully working 2024 Dutch GP experiments.** Version 2.2 expands Ghost Lap with four-car comparison and a synchronized 20-car race replay, while retaining the configurable Elastic/Hopsworks runtime and original analytics.
+**An explorable 2023–2024 race workspace, plus five working 2024 Dutch GP experiments.** Version 2.4 adds Apex Afterhours, a browser-generated Festival Set built from official best race laps, alongside the configurable Elastic/Hopsworks runtime and original analytics.
 
 ## Run the credential-free showcase
 
@@ -31,6 +31,12 @@ These modes are deliberately different: independent ghost laps are **not actual 
 
 See [docs/MULTI-CAR-REPLAY.md](docs/MULTI-CAR-REPLAY.md) for controls, provenance, gap/outlier handling and limits. Dashboard cloud configuration remains unchanged.
 
+## Apex Afterhours / Festival Set
+
+Turn one official fastest race lap per Dutch GP driver into an original, locally synthesized musical identity. Select a driver or one of seven genre remixes, watch the recorded cars circulate on a neon circuit, and explore the audio-clock sequencer and Auto VJ. Audio starts only after an explicit user gesture; no commercial music, external media, cloud service or new race observations are used.
+
+The experience runs in the credential-free Vercel demo. Its lap data comes from the already bundled, checksummed replay archive; it does not connect to Elastic or Hopsworks. See [docs/AFTERHOURS-GUIDE.md](docs/AFTERHOURS-GUIDE.md) for controls, provenance, accessibility boundaries and verification.
+
 ## Configure cloud access later — no application-code edits for the documented schema
 
 The connection layer is implemented. It is **not live-account validated** yet; local mode still needs no credentials.
@@ -43,16 +49,16 @@ python scripts/connect_cloud.py init
 
 Open the generated private `.env`, add your Elastic source URL/key and Hopsworks host/project/key, choose your own feature prefix, and restart the server. In **Connections**, unlock with the separate generated operator token, test access, activate Elastic + local features, explicitly publish/read back one pace batch, then activate Hopsworks. Provider keys never go into the frontend.
 
-**Full instructions:** [docs/CLOUD-SETUP.md](docs/CLOUD-SETUP.md). That guide covers exact environment variables, permissions, SDK compatibility, read/write boundaries, safe recovery, bounded native telemetry and CLI alternatives. Cloud mode powers the historical dashboard and its pace summaries; historical timing and the four original experiments retain their separately labeled public snapshots.
+**Full instructions:** [docs/CLOUD-SETUP.md](docs/CLOUD-SETUP.md). That guide covers exact environment variables, permissions, SDK compatibility, read/write boundaries, safe recovery, bounded native telemetry and CLI alternatives. Cloud mode powers the historical dashboard and its pace summaries; historical timing and all five Dutch GP experiments retain their separately labeled public-data scopes.
 
 ## Start here
 
 - Open the **live preview** to explore **46 Grands Prix across 2023 and 2024**. The initial selection is 2024 · R15 · Dutch GP.
 - Use the season/Grand Prix selectors for historical championship snapshots and event analysis; **Season end** selects the final round.
 - Read [docs/DASHBOARD-GUIDE.md](docs/DASHBOARD-GUIDE.md) for the full reference-feature adaptation, loaded coverage, methods, APIs and hackathon-schema mapping.
-- Read [DEMO-GUIDE.md](DEMO-GUIDE.md) for a short dashboard tour and the original four demo stories.
+- Read [DEMO-GUIDE.md](DEMO-GUIDE.md) for a short dashboard tour and all five demo experiences.
 - Open **Coverage & schema** for archive counts, known gaps, exports, query templates and actual local feature read-back.
-- The **Experiments** group preserves Ghost Lap, Pitwall Sandbox, Pace Detective and Driver DNA, all explicitly scoped to the original Dutch GP snapshot. **Compare ideas**, shortlisting and the ML pipeline still work.
+- The **Experiments** group includes Ghost Lap, Pitwall Sandbox, Pace Detective, Driver DNA and Apex Afterhours. The original four ML/strategy experiments remain scoped to their Dutch GP snapshot; Afterhours uses checked, official best-lap observations from the same race's bundled replay archive. **Compare ideas**, shortlisting and the ML pipeline still work.
 
 ## What you can explore
 
@@ -60,12 +66,13 @@ Open the generated private `.env`, add your Elastic source URL/key and Hopsworks
 
 Unsupported reference modules were **replaced**, not filled with invented data: technical updates → race-control evidence; component allocations → tyre/stint evidence; crash costs → weather/conditions. Track DNA uses disclosed timing-derived features rather than fabricated engineering ratings. The design and implementation are original; the reference site informed functionality and information architecture only.
 
-**Four retained experiments:**
+**Five experiments:**
 
 1. **Ghost Lap** — real-lap 3D telemetry replay, chase/orbit cameras, synthesized RPM-driven sound, instruments, theatre mode and 2D fallback.
 2. **Pitwall Sandbox** — working one-stop counterfactual with pit-lap, compound, tyre-age and pit-loss controls.
 3. **Pace Detective** — past-only features, rolling baseline, fitted random forest, chronological evaluation and inspectable anomalies.
 4. **Driver DNA** — blind driver–car identification with held-out laps, actual classifier votes and a confusion matrix.
+5. **Apex Afterhours** — twenty official best race laps become twenty original musical signatures, with seven genre remixes and audio-clock visual choreography.
 
 ## What is real, and what is modeled?
 
@@ -77,6 +84,7 @@ Unsupported reference modules were **replaced**, not filled with invented data: 
 | Historical timing | Recorded as-of ranks and lap evidence on a reconciled common clock; **archive/replay, not live** |
 | High-frequency dashboard export | **Four Dutch GP laps / 1,444 interpolated display samples**, not full-field two-season telemetry |
 | Original experiment snapshot | Separate 1,425 Dutch GP laps and 275 eligible telemetry laps for four drivers; preserved, not relabeled by the archive selectors |
+| Apex Afterhours | Existing checksummed replay observations, matched to official fastest race laps for all 20 drivers; no new racing samples |
 | Synthetic imported observations | **None**; interpolations, model outputs and procedural presentation are separately disclosed |
 | Road, cars, scenery, steering and audio | **Illustrative/procedural**, driven by recorded telemetry; not surveyed geometry, physics simulation or official recordings |
 | Pace / DNA models | Actually fitted and evaluated on the original **one-race** snapshot; no two-season generalization claim |

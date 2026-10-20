@@ -14,7 +14,7 @@ p.add_argument('--live-url',default=None,help='Optional running API, e.g. http:/
 p.add_argument('--verify-only',action='store_true',help='Do not rewrite qa/package-smoke.json')
 args=p.parse_args()
 checks=[]
-report={'passed':False,'app_version':'2.2.0','tested_at':datetime.now(timezone.utc).isoformat(),'checks':checks,
+report={'passed':False,'app_version':'2.4.0','tested_at':datetime.now(timezone.utc).isoformat(),'checks':checks,
         'scope':'Fresh extraction with installed Python dependencies; no clean-OS or live cloud claim.',
         'repack_note':'The final repack includes this report. --verify-only repeats all checks without modifying it.'}
 def check(name,condition=True):
@@ -31,8 +31,8 @@ import io,json,re,zipfile
 from fastapi.testclient import TestClient
 from app import app
 root=Path.cwd()
-assert app.version=='2.2.0'
-paths=['/','/api/health','/api/bootstrap','/api/ghost','/api/strategy','/api/pace','/api/dna/challenge','/api/pipeline',
+assert app.version=='2.4.0'
+paths=['/','/api/health','/api/bootstrap','/api/ghost','/api/strategy','/api/pace','/api/dna/challenge','/api/afterhours','/api/pipeline',
  '/api/dashboard/catalog','/api/dashboard/season?season=2024&round=24','/api/dashboard/season?season=2023&round=22',
  '/api/dashboard/race?season=2024&round=15','/api/dashboard/race?season=2024&round=4','/api/dashboard/race?season=2023&round=1',
  '/api/dashboard/driver?season=2024&round=15&driver=norris','/api/dashboard/compare?season=2024&round=15&a=norris&b=piastri',
@@ -44,6 +44,7 @@ with TestClient(app) as c:
  for path in paths:
   r=c.get(path);assert r.status_code==200,(path,r.status_code,r.text[:300]);result['statuses'][path]=r.status_code;responses[path]=r
  assert len(responses['/api/dashboard/catalog'].json()['events'])==46
+ afterhours=responses['/api/afterhours'].json();assert afterhours['driver_count']==20 and afterhours['missing']==[] and afterhours['synthetic_race_observations']==0 and len(responses['/api/afterhours'].content)<250000
  assert responses['/api/dashboard/season?season=2024&round=24'].json()['driver_standings'][0]['points']==437
  assert responses['/api/dashboard/season?season=2024&round=24'].json()['constructor_standings'][0]['points']==666
  assert responses['/api/dashboard/season?season=2023&round=22'].json()['driver_standings'][0]['points']==575
@@ -64,7 +65,7 @@ with TestClient(app) as c:
  for url in re.findall(r'(?:src|href)="([^"]+)"',html):
   if url.startswith('/assets/'):
    assert c.get(url).status_code==200;result['assets'].append(url)
- for pattern in ['Dashboard-*.js','TelemetryScene-*.js','GhostWorkspace-*.js','FleetScene-*.js','sceneGeometry-*.js']:
+ for pattern in ['Dashboard-*.js','TelemetryScene-*.js','GhostWorkspace-*.js','FleetScene-*.js','Afterhours-*.js','sceneGeometry-*.js']:
   asset=next((root/'web/assets').glob(pattern));url='/assets/'+asset.name;assert c.get(url).status_code==200;result['assets'].append(url)
  for asset in sorted((root/'web/assets').iterdir()):
   if asset.is_file():assert c.get('/assets/'+asset.name).status_code==200
@@ -72,7 +73,7 @@ with TestClient(app) as c:
  assert not re.search(r'(?:src|href)="https?://',html)
  ghost=responses['/api/ghost'].json();assert len(ghost['a']['trace']['rpm'])==361 and abs(ghost['finish_delta']-.935)<1e-9
  assert abs(responses['/api/strategy'].json()['actual_gap']+22.896)<1e-9
- guide=responses['/api/download/brief'].text;assert 'dashboard tour' in guide.lower() and 'Enable sound' in guide
+ guide=responses['/api/download/brief'].text;assert 'dashboard tour' in guide.lower() and 'Apex Afterhours' in guide and 'Enable sound' in guide
  state=c.get('/api/connections/status').json();assert state['modes']=={'data':'local','features':'local'} and not state['elastic']['configured'] and not state['hopsworks']['configured'] and not state['admin_configured']
  assert c.post('/api/connections/test/elastic').status_code==503
  assert c.get('/api/connections/guide').status_code==200 and 'PITLANE_ADMIN_TOKEN' in c.get('/api/connections/guide').text
@@ -104,11 +105,11 @@ try:
         check('ZIP integrity',z.testzip() is None)
         names=z.namelist();report['archive_files']=len(names)
         check('Safe rooted paths and no symlink members',all(n.startswith('pitlane-lab/') and '..' not in Path(n).parts and '\\' not in n for n in names) and not any(stat.S_ISLNK(i.external_attr>>16) for i in z.infolist()))
-        excluded={'.git','.cache','.venv','node_modules','__pycache__','.pytest_cache','.hopsworks','.hsfs','connection_state','certificates','.secrets'}
+        excluded={'.git','.cache','.vercel','.venv','node_modules','__pycache__','.pytest_cache','.hopsworks','.hsfs','connection_state','certificates','.secrets','_uv','_vendor','___vc','_vc_pycache'}
         check('Dependencies, caches and secret/sidecar files excluded',not any(excluded.intersection(Path(n).parts) or (Path(n).name.startswith('.env') and Path(n).name!='.env.example') or n.endswith(('.key','.pem','.jks','.p12','.pfx','.crt','.cer','-journal','-wal','-shm')) for n in names))
-        required=['src/dashboard.py','src/dashboard_api.py','frontend/src/dashboard/Timing.jsx','frontend/src/dashboard/SeasonStatistics.jsx','frontend/src/replay/TelemetryScene.jsx','frontend/src/replay/EngineAudio.jsx','tests/test_dashboard.py','tests/dashboard-model.mjs','tests/dashboard-browser.mjs','tests/replay-browser.mjs','tests/package-smoke.py','docs/DASHBOARD-GUIDE.md','docs/CLOUD-SETUP.md','docs/MULTI-CAR-REPLAY.md','src/race_replay.py','scripts/prepare_race_replay.py','data/replay/manifest.json','frontend/src/replay/GhostWorkspace.jsx','frontend/src/replay/FleetScene.jsx','frontend/src/replay/fleetModel.js','tests/test_race_replay.py','tests/fleet-model.mjs','tests/fleet-browser.mjs','src/settings.py','src/remote.py','src/connections.py','src/elastic_dashboard.py','scripts/connect_cloud.py','.env.example','tests/test_connections.py','tests/connections-browser.mjs','DATA-NOTICE.md','QA-REPORT.md','licenses/three-LICENSE.txt','licenses/Inter-OFL.txt','data/dashboard/manifest.json','data/manifest.json','web/index.html']
-        check('Dashboard, original labs, test suites, guides, licenses and all three curated data scopes included',all('pitlane-lab/'+n in names for n in required))
-        check('Version 2.2 package metadata',json.loads(z.read('pitlane-lab/frontend/package.json'))['version']=='2.2.0')
+        required=['src/dashboard.py','src/dashboard_api.py','frontend/src/dashboard/Timing.jsx','frontend/src/dashboard/SeasonStatistics.jsx','frontend/src/replay/TelemetryScene.jsx','frontend/src/replay/EngineAudio.jsx','frontend/src/afterhours/Afterhours.jsx','frontend/src/afterhours/DanceFloor.jsx','frontend/src/afterhours/MusicEngine.js','frontend/src/afterhours/genres.js','frontend/src/afterhours/model.js','frontend/src/afterhours/profiles.js','frontend/src/afterhours/afterhours.css','tests/test_afterhours.py','tests/afterhours-model.mjs','tests/afterhours-genres-model.mjs','tests/afterhours-browser.mjs','tests/test_dashboard.py','tests/dashboard-model.mjs','tests/dashboard-browser.mjs','tests/replay-browser.mjs','tests/package-smoke.py','docs/DASHBOARD-GUIDE.md','docs/AFTERHOURS-GUIDE.md','docs/CLOUD-SETUP.md','docs/MULTI-CAR-REPLAY.md','src/afterhours.py','src/race_replay.py','scripts/prepare_race_replay.py','data/replay/manifest.json','frontend/src/replay/GhostWorkspace.jsx','frontend/src/replay/FleetScene.jsx','frontend/src/replay/fleetModel.js','tests/test_race_replay.py','tests/fleet-model.mjs','tests/fleet-browser.mjs','src/settings.py','src/remote.py','src/connections.py','src/elastic_dashboard.py','scripts/connect_cloud.py','.env.example','tests/test_connections.py','tests/connections-browser.mjs','DATA-NOTICE.md','QA-REPORT.md','licenses/three-LICENSE.txt','licenses/Inter-OFL.txt','data/dashboard/manifest.json','data/manifest.json','web/index.html']
+        check('Dashboard, five experiences, test suites, guides, licenses and all three curated data scopes included',all('pitlane-lab/'+n in names for n in required))
+        check('Version 2.4 package metadata',json.loads(z.read('pitlane-lab/frontend/package.json'))['version']=='2.4.0')
         manifest=json.loads(z.read('pitlane-lab/data/dashboard/manifest.json'))
         check('All 93 dashboard archive SHA-256 hashes match',len(manifest['sha256'])==93 and all(hashlib.sha256(z.read('pitlane-lab/data/dashboard/'+name)).hexdigest()==digest for name,digest in manifest['sha256'].items()))
         replay_manifest=json.loads(z.read('pitlane-lab/data/replay/manifest.json'))
@@ -117,20 +118,21 @@ try:
             check('Included passing '+name,json.loads(z.read('pitlane-lab/qa/'+name))['passed']==total)
         if args.verify_only:
             previous=json.loads(z.read('pitlane-lab/qa/package-smoke.json'))
-            check('Final ZIP includes current successful 2.2 package-smoke evidence',previous['passed'] and previous['app_version']=='2.2.0')
+            check('Final ZIP includes current successful 2.4 package-smoke evidence',previous['passed'] and previous['app_version']=='2.4.0')
         with tempfile.TemporaryDirectory(prefix='package-smoke-',dir=ROOT/'.cache') as tmp:
             z.extractall(tmp);extracted=Path(tmp)/'pitlane-lab'
             child=subprocess.run([sys.executable,'-c',CHILD],cwd=extracted,env={**os.environ,'PYTHONPATH':str(extracted)},capture_output=True,text=True,timeout=100)
             if child.returncode:raise RuntimeError(child.stdout[-4000:]+'\n'+child.stderr[-4000:])
             line=next(x for x in child.stdout.splitlines() if x.startswith('PACKAGE_RESULT='));report['extraction']=json.loads(line.split('=',1)[1])
-            for name in ['Fresh extraction boots version 2.2 and serves 21 original/dashboard routes','Both final championships match independent totals','Archive counts, quality gaps and actual local read-back preserved','All five schema exports have correct counts and unsupported telemetry stays empty','All ten CSV exports work','Invalid year and nonfinite cutoff rejected','Bundled entrypoint and lazy dashboard/3D assets served without CDN references','Original recorded RPM, finish delta and classified strategy anchor preserved','Updated dashboard/3D demo guide downloadable','Fresh extraction defaults to local modes with no provider credentials and refuses connection actions','Cloud setup guide downloads; QA reset endpoint absent in production','Four-car comparison and all 20 shared-clock replay endpoints work from fresh extraction','All bundled current and retained hashed assets are served','On-demand ZIP generation works from extracted source']:
+            for name in ['Fresh extraction boots version 2.4 and serves 22 original/dashboard/Afterhours routes','All twenty official Afterhours best laps serve with no missing or synthetic observations','Both final championships match independent totals','Archive counts, quality gaps and actual local read-back preserved','All five schema exports have correct counts and unsupported telemetry stays empty','All ten CSV exports work','Invalid year and nonfinite cutoff rejected','Bundled entrypoint and lazy dashboard/3D/Afterhours assets served without CDN references','Original recorded RPM, finish delta and classified strategy anchor preserved','Updated dashboard and Afterhours demo guides downloadable','Fresh extraction defaults to local modes with no provider credentials and refuses connection actions','Cloud setup guide downloads; QA reset endpoint absent in production','Four-car comparison and all 20 shared-clock replay endpoints work from fresh extraction','All bundled current and retained hashed assets are served','On-demand ZIP generation works from extracted source']:
                 check(name)
     if args.live_url:
-        live_paths=['/','/api/health','/api/ghost','/api/strategy','/api/pace','/api/dna/challenge','/api/dashboard/catalog','/api/dashboard/season?season=2024&round=24','/api/dashboard/race?season=2024&round=15','/api/dashboard/coverage','/api/ghost/field','/api/replay/race','/api/replay/driver/ZHO']
+        live_paths=['/','/api/health','/api/ghost','/api/strategy','/api/pace','/api/dna/challenge','/api/afterhours','/api/dashboard/catalog','/api/dashboard/season?season=2024&round=24','/api/dashboard/race?season=2024&round=15','/api/dashboard/coverage','/api/ghost/field','/api/replay/race','/api/replay/driver/ZHO']
         for path in live_paths:http(path)
-        check('Live preview serves dashboard and all four original experiences')
+        check('Live preview serves dashboard and all five experiments')
         check('Live project download byte-matches assembled ZIP',http('/api/download/project')==raw)
-        check('Live demo guide exposes dashboard and 3D/audio tour',b'dashboard tour' in http('/api/download/brief').lower() and b'Enable sound' in http('/api/download/brief'))
+        live_guide=http('/api/download/brief')
+        check('Live demo guide exposes dashboard and Afterhours tours',b'dashboard tour' in live_guide.lower() and b'Apex Afterhours' in live_guide and b'Enable sound' in live_guide)
         report['live_paths']=live_paths
     report['passed']=True
     print(f'PASS {len(checks)} package checks; {len(raw):,} ZIP bytes; {report["archive_files"]} files')

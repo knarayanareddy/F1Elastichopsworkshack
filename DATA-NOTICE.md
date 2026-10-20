@@ -43,6 +43,12 @@ The event cluster was not accessed. Its published counts and the public archive'
 
 The dashboard's five-index telemetry export contains only **1,444 interpolated samples from four Dutch GP laps**, marked `is_interpolated=true`, with unsupported DRS/Z null. It is not the guide's published 57,353,359 native telemetry rows. No two-season ML model was trained.
 
+## Version 2.3–2.4 / Apex Afterhours
+
+Afterhours selects each driver's official fastest **2024 Dutch GP race lap**, matches the official lap number and duration to the bundled lap record, verifies the corresponding replay-file SHA-256, and uses only observed location/car-data samples bracketing that lap. It adds no raw race observations and makes no network requests. All twenty selected laps have complete observed bracketing coverage in this release.
+
+Musical profiles, genre remixes, visual palettes and choreography are original creative assignments, not driver preferences, recordings, artist endorsements or observed race events. Synth audio is generated in the browser after user consent. Flash accents are optional and rate-limited; Calm/reduced-motion controls reduce movement but are not a universal photosensitivity guarantee. See [docs/AFTERHOURS-GUIDE.md](docs/AFTERHOURS-GUIDE.md).
+
 ### Original Dutch GP experiment snapshot
 
 The following original-snapshot documentation remains applicable. It has **1,425 lap rows**, while the separately imported dashboard Dutch GP archive has **1,426**. Neither snapshot is silently rewritten to match the other. Changing archive selectors does not change the original 3D/ML experiment's data scope.

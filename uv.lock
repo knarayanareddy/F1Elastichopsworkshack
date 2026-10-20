@@ -184,7 +184,7 @@ wheels = [
 
 [[package]]
 name = "pitlane-demo"
-version = "2.2.0"
+version = "2.4.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },

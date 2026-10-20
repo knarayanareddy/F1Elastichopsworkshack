@@ -53,6 +53,7 @@ def test_vercel_bundle_excludes_local_secrets_and_runtime_cache():
     assert 'uv.lock' not in excluded
     for path in ('.env*', '_uv/', '.claude/'):
         assert path in upload_ignored
+    assert '!**/.env.example' in upload_ignored
     assert 'pyproject.toml' not in upload_ignored
     assert 'uv.lock' not in upload_ignored
 

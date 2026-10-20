@@ -1,0 +1,228 @@
+{
+  "created_at": "2026-10-20T17:30:48.907Z",
+  "passed": 50,
+  "total": 50,
+  "duration_ms": 57450,
+  "measurements": {
+    "playing": {
+      "contexts": 1,
+      "state": "running",
+      "rms": 0.013305144168688113,
+      "maxRms": 0.07723659757188546,
+      "peak": 0.13079498708248138,
+      "oscillators": 94
+    },
+    "paused": {
+      "contexts": 1,
+      "state": "running",
+      "rms": 0,
+      "maxRms": 0,
+      "peak": 0,
+      "oscillators": 906
+    }
+  },
+  "checks": [
+    {
+      "name": "The collection now contains five experiments",
+      "passed": true
+    },
+    {
+      "name": "Twenty official best-lap cars and twenty musical identities load",
+      "passed": true
+    },
+    {
+      "name": "No sound is created before an explicit gesture",
+      "passed": true
+    },
+    {
+      "name": "Creative homage and source boundaries are visible",
+      "passed": true
+    },
+    {
+      "name": "Desktop layout has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Psytrance preset selects a real remix before audio consent",
+      "passed": true
+    },
+    {
+      "name": "Driver signature restores the original profile without creating audio",
+      "passed": true
+    },
+    {
+      "name": "Visual-only playback moves real lap positions without starting audio",
+      "passed": true
+    },
+    {
+      "name": "Pause freezes the visual lap clock",
+      "passed": true
+    },
+    {
+      "name": "Aligned mode and restart expose genuinely aligned lap starts",
+      "passed": true
+    },
+    {
+      "name": "Clicking a moving-car marker selects its signature",
+      "passed": true
+    },
+    {
+      "name": "Original dance music produces audible native audio without clipping",
+      "passed": true
+    },
+    {
+      "name": "Driver switch changes music identity, tempo and light pattern",
+      "passed": true
+    },
+    {
+      "name": "Musical transitions do not restart the lap clock",
+      "passed": true
+    },
+    {
+      "name": "NOR has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "VER has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "LEC has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "PIA has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "SAI has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "PER has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "RUS has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "HAM has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "GAS has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "ALO has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "HUL has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "RIC has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "STR has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "ALB has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "OCO has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "SAR has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "TSU has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "MAG has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "BOT has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "ZHO has a working distinct music/light cue",
+      "passed": true
+    },
+    {
+      "name": "All twenty mixes share one managed audio context",
+      "passed": true
+    },
+    {
+      "name": "Mute silences the mix without pausing car motion",
+      "passed": true
+    },
+    {
+      "name": "Zero volume silences output",
+      "passed": true
+    },
+    {
+      "name": "Lead layer can be independently muted",
+      "passed": true
+    },
+    {
+      "name": "Mix energy control updates",
+      "passed": true
+    },
+    {
+      "name": "Calm lighting can be enabled independently of playback",
+      "passed": true
+    },
+    {
+      "name": "Theatre retains driver and playback controls",
+      "passed": true
+    },
+    {
+      "name": "Escape restores normal layout",
+      "passed": true
+    },
+    {
+      "name": "Pause reliably silences music",
+      "passed": true
+    },
+    {
+      "name": "Mobile layout fits the viewport",
+      "passed": true
+    },
+    {
+      "name": "Mobile theatre keeps mute and driver controls visible",
+      "passed": true
+    },
+    {
+      "name": "Background visibility pauses and silences the experiment",
+      "passed": true
+    },
+    {
+      "name": "Leaving the experiment closes its audio context",
+      "passed": true
+    },
+    {
+      "name": "OS reduced-motion preference is respected by default",
+      "passed": true
+    },
+    {
+      "name": "No unexpected console/runtime errors",
+      "passed": true
+    },
+    {
+      "name": "No external browser dependencies",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "external": []
+}

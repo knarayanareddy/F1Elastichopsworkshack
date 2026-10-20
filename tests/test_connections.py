@@ -266,9 +266,10 @@ def test_duplicate_job_rejected(rt):
         with pytest.raises(ConnectionProblem,match='already running'):rt.submit('duplicate',lambda:None)
     finally:event.set();wait_job(rt);rt.pool.shutdown(wait=True)
 
-def test_package_excludes_credentials_and_runtime(tmp_path):
+def test_package_excludes_credentials_and_runtime(tmp_path,monkeypatch):
     from src.archive import create_archive
-    for name in ['.env','.env.prod','client.key','trust.jks','cert.p12','chain.pem','client.pfx','root.crt','.cache/native-data.json','.hopsworks/secret.json','connection_state/session.json','certificates/key.txt','.secrets/values.txt','data/hopsworks-publish-report.json']:
+    monkeypatch.setenv('VERCEL','1')
+    for name in ['.env','.env.prod','client.key','trust.jks','cert.p12','chain.pem','client.pfx','root.crt','.cache/native-data.json','.vercel/project.json','_uv/uv','_vendor/pip.py','___vc/helper','_vc_pycache/runtime.py','.hopsworks/secret.json','connection_state/session.json','certificates/key.txt','.secrets/values.txt','data/hopsworks-publish-report.json']:
         p=tmp_path/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('DO_NOT_SHIP')
     (tmp_path/'.env.example').write_text('PLACEHOLDERS_ONLY');(tmp_path/'readme.md').write_text('safe')
     zpath=tmp_path.parent/'safe.zip';create_archive(tmp_path,zpath)

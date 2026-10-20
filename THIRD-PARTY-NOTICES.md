@@ -30,3 +30,7 @@ Hopsworks/HSFS 5.2.1 is optional and installed from `requirements-integrations.t
 ## Multi-car replay additions
 
 The 20-driver replay uses additional public OpenF1 location/car-data observations for session 9582, with URLs and digests in `data/replay/manifest.json`. The data is reduced-cadence observed telemetry, not generated race positions. Multi-car scene geometry/liveries remain original procedural illustrations, using the existing Three.js dependency. No official car models, track survey, liveries or engine recordings are bundled.
+
+## Apex Afterhours
+
+Afterhours is an unofficial, ADE-inspired creative experiment. No ADE/Formula 1 affiliation or endorsement is implied. It contains no festival logo, commercial recording, sampled song or artist voice. Musical profiles, synthesized arrangements and procedural visuals are original; the racing inputs are existing public observations from the bundled, checksummed OpenF1/Jolpica archive. Data availability does not grant unrestricted redistribution or commercial rights; see `DATA-NOTICE.md`.

@@ -1,6 +1,15 @@
-# PITLANE — dashboard tour & four ideas to try
+# PITLANE — dashboard tour & five experiences to try
 
-The hosted, credential-free preview uses the bundled public archive and local SQLite; it does not contact Elastic or Hopsworks, and cloud controls are disabled. The default is the **2023–2024 historical dashboard**; the four original experiments remain under **Experiments**, explicitly scoped to the **2024 Dutch GP**. The normal `uvicorn app:app` entrypoint remains the separate operator-configured cloud mode.
+The hosted, credential-free preview uses the bundled public archive and local SQLite; it does not contact Elastic or Hopsworks, and cloud controls are disabled. The default is the **2023–2024 historical dashboard**; the five experiences are under **Experiments**. The four original ML/strategy experiments use their **2024 Dutch GP** snapshot; Apex Afterhours reads official best laps from the existing replay archive. The normal `uvicorn app:app` entrypoint remains the separate operator-configured cloud mode.
+
+## New in 2.4 / Apex Afterhours Festival Set
+
+1. Open **Apex Afterhours** and choose a driver signature or one of seven genre remixes.
+2. Click **Enter the floor** to start audio; it is silent until that explicit gesture. Select a car or change genre while playing to hear a bar-quantized transition.
+3. Expand the floor, let Auto VJ evolve with the audio clock, and try **DRS DROP** (a musical effect only). Auto DJ can cycle the existing official best laps.
+4. Use **Calm lights** for reduced visual motion. Flash accents are off by default and require a separate warning/confirmation.
+
+The synth, visuals and beat patterns are original and browser-generated. No licensed tracks, external media, new race observations or cloud credentials are used. See [docs/AFTERHOURS-GUIDE.md](docs/AFTERHOURS-GUIDE.md) for the complete tour, lap provenance and limitations.
 
 ## New in 2.2 / the multi-car demo
 
@@ -14,7 +23,7 @@ The hosted, credential-free preview uses the bundled public archive and local SQ
 
 Open **Connections** to see server-side credential readiness without exposing any keys. When credentials arrive, follow [docs/CLOUD-SETUP.md](docs/CLOUD-SETUP.md): create the private `.env`, test read access, explicitly activate Elastic, preview/publish/verify one isolated Hopsworks batch, then activate Hopsworks for the dashboard pace panel. Missing batches and connection failures are visible; the app never silently falls back to public data.
 
-Before credentials, buttons remain safely disabled. No provider accounts were connected for this delivery. After configuration, native Elastic telemetry can be inspected for one driver/lap at a time. Historical timing and the four original 3D/ML experiments keep their public Dutch GP scope; this is not a claim that every original model has moved to cloud execution.
+Before credentials, buttons remain safely disabled. No provider accounts were connected for this delivery. After configuration, native Elastic telemetry can be inspected for one driver/lap at a time. Historical timing and all five experiments keep their public-data scopes; this is not a claim that the original models or Afterhours have moved to cloud execution.
 
 ## A five-minute dashboard tour
 
@@ -44,6 +53,7 @@ The advertised 57M telemetry corpus is **not** loaded: the dashboard telemetry e
 | **Pitwall Sandbox** | Someone picks a pit lap and tyre; the entire scenario recalculates. | **Best collaborative what-if demo**, but the assumptions need careful explanation. |
 | **Pace Detective** | Click a surprising real lap and show exactly which earlier laps informed the expectation. | **Safest small hack-night project**, with a clear Elastic/Hopsworks story. |
 | **Driver DNA** | Hide the identity, get an audience vote, then reveal the actual driver and model vote. | **Best interactive reveal** and a useful classification discussion. |
+| **Apex Afterhours** | Let twenty recorded best laps drive original synthesized signatures and genre remixes. | **Creative crowd-pleaser**; audio is opt-in and visual calm controls are available. |
 
 The assessments above are recommendations, not official judging scores. You can star ideas in the app; **Compare ideas** shows their intended platform roles, risks, and relative event-build effort.
 

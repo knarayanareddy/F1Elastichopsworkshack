@@ -8,7 +8,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from src.engine import LabEngine, DATA, ROOT, DRIVERS
 
-app=FastAPI(title='Pitlane Lab',version='2.2.0',description='Real historical observations; transparent local feature/search backends.')
+app=FastAPI(title='Pitlane Lab',version='2.4.0',description='Real historical observations; transparent local feature/search backends.')
 engine=LabEngine();lock=RLock()
 Driver=Literal['NOR','VER','LEC','PIA']
 
@@ -122,5 +122,8 @@ async def protect_cloud_data(request,call_next):
 
 from src.race_replay import router as replay_router
 app.include_router(replay_router)
+
+from src.afterhours import router as afterhours_router
+app.include_router(afterhours_router)
 
 app.mount('/',StaticFiles(directory=ROOT/'web',html=True,check_dir=False),name='website')

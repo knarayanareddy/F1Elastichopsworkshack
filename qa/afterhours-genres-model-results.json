@@ -1,0 +1,696 @@
+{
+  "created_at": "2026-10-20T16:59:26.017Z",
+  "passed": 172,
+  "total": 172,
+  "duration_ms": 14,
+  "checks": [
+    {
+      "name": "Seven genre remixes plus original driver signatures are available",
+      "passed": true
+    },
+    {
+      "name": "NOR/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "NOR/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "VER/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "LEC/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PIA/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAI/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "PER/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RUS/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HAM/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "GAS/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALO/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "HUL/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "RIC/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "STR/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ALB/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "OCO/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "SAR/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "TSU/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "MAG/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "BOT/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/signature: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/trance: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/psy: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/acid: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/house: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/melodic: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/groove: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "ZHO/breaks: complete distinct mix and finite playable score",
+      "passed": true
+    },
+    {
+      "name": "Seven genre engines differ by arrangement/synthesis, not only color",
+      "passed": true
+    },
+    {
+      "name": "Drum & bass uses broken kicks, rather than the trance four-on-floor",
+      "passed": true
+    },
+    {
+      "name": "House has swing and harmonic stabs while psy has gated rolling bass",
+      "passed": true
+    },
+    {
+      "name": "A musical boost overrides the breakdown with an actual drop arrangement",
+      "passed": true
+    },
+    {
+      "name": "Auto VJ evolves through multiple patterns on the bar clock",
+      "passed": true
+    },
+    {
+      "name": "Pattern transitions crossfade rather than hard-jump",
+      "passed": true
+    },
+    {
+      "name": "Calm and fixed-VJ modes disable pattern morphing",
+      "passed": true
+    },
+    {
+      "name": "Flash accents require explicit opt-in, playback and non-calm mode",
+      "passed": true
+    },
+    {
+      "name": "Flash beat windows are separated by two beats, even at maximum genre tempo",
+      "passed": true
+    },
+    {
+      "name": "Spectrum bands are real bounded averages and silence is zero",
+      "passed": true
+    },
+    {
+      "name": "Unknown genre selection safely returns a driver signature",
+      "passed": true
+    }
+  ]
+}
