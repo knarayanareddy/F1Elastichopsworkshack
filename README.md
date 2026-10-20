@@ -1,6 +1,6 @@
 # F1Elastichopsworkshack — PITLANE
 
-[Credential-free live demo](https://fihackdemo.kiranreddy.nl) · [Static GitHub Pages overview](https://knarayanareddy.github.io/F1Elastichopsworkshack/) · [Workflow slide](./presentation/Elastic-Hopsworks-Workflow.pptx)
+[Credential-free live demo](https://f1hackdemo.kiranreddy.nl) · [Static GitHub Pages overview](https://knarayanareddy.github.io/F1Elastichopsworkshack/) · [Workflow slide](./presentation/Elastic-Hopsworks-Workflow.pptx)
 
 > The hosted showcase uses bundled public observations and local SQLite on Vercel. It needs no Elastic/Hopsworks credentials and makes no provider calls; cloud integration controls are disabled in this demo mode. GitHub Pages is a static overview linking to the interactive app.
 

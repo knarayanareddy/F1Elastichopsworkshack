@@ -81,8 +81,8 @@ def test_static_overview_links_to_the_keyless_hosted_demo():
     overview = (root / 'index.html').read_text()
     readme = (root / 'README.md').read_text()
 
-    assert 'https://fihackdemo.kiranreddy.nl' in overview
+    assert 'https://f1hackdemo.kiranreddy.nl' in overview
     assert 'credential-free showcase' in overview
     assert 'GitHub Pages is a static overview' in overview
-    assert 'https://fihackdemo.kiranreddy.nl' in readme
+    assert 'https://f1hackdemo.kiranreddy.nl' in readme
     assert 'no Elastic/Hopsworks credentials' in readme
